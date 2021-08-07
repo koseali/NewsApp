@@ -21,6 +21,8 @@
 		81BE2CC826BDF5BB0024D77C /* SourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE2CC726BDF5BB0024D77C /* SourceViewController.swift */; };
 		81BE2CCA26BDF9ED0024D77C /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE2CC926BDF9ED0024D77C /* NewsTableViewCell.swift */; };
 		81BE2CCC26BDFFFA0024D77C /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE2CCB26BDFFFA0024D77C /* FavoritesTableViewCell.swift */; };
+		81BE2CCE26BE077B0024D77C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE2CCD26BE077B0024D77C /* UIViewController+Extension.swift */; };
+		81BE2CD226BE0C200024D77C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BE2CD026BE0C0A0024D77C /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		81BE2CC726BDF5BB0024D77C /* SourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceViewController.swift; sourceTree = "<group>"; };
 		81BE2CC926BDF9ED0024D77C /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		81BE2CCB26BDFFFA0024D77C /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
+		81BE2CCD26BE077B0024D77C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		81BE2CD026BE0C0A0024D77C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81BE2CD226BE0C200024D77C /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +100,7 @@
 				81BE2CA126BDE3740024D77C /* AppcentAppTests */,
 				81BE2CAC26BDE3740024D77C /* AppcentAppUITests */,
 				81BE2C8926BDE3730024D77C /* Products */,
+				81BE2CCF26BE0C090024D77C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,8 +180,17 @@
 			isa = PBXGroup;
 			children = (
 				81BE2CBF26BDE7930024D77C /* UIView+Extension.swift */,
+				81BE2CCD26BE077B0024D77C /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		81BE2CCF26BE0C090024D77C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81BE2CD026BE0C0A0024D77C /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +328,7 @@
 				81BE2CC026BDE7930024D77C /* UIView+Extension.swift in Sources */,
 				81BE2CCA26BDF9ED0024D77C /* NewsTableViewCell.swift in Sources */,
 				81BE2CC226BDE84B0024D77C /* NewsViewController.swift in Sources */,
+				81BE2CCE26BE077B0024D77C /* UIViewController+Extension.swift in Sources */,
 				81BE2CC826BDF5BB0024D77C /* SourceViewController.swift in Sources */,
 				81BE2CC426BDEC9F0024D77C /* FavoritesViewController.swift in Sources */,
 				81BE2C8E26BDE3730024D77C /* SceneDelegate.swift in Sources */,
@@ -422,7 +438,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -477,7 +493,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

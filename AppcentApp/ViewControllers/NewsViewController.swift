@@ -12,6 +12,7 @@ class NewsViewController: UIViewController {
 // MARK: -IBOUTLETS
     @IBOutlet weak var newsTableView: UITableView!
     
+    @IBOutlet weak var searchTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -21,7 +22,15 @@ class NewsViewController: UIViewController {
         newsTableView.delegate = self
         newsTableView.dataSource = self
     }
+    @IBAction func clearSearchButtonTapped(_ sender: Any) {
+        searchTextField.text = ""
+    }
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        print("Search Yapma fonksiyonu tableview reload at")
+    }
 }
+
+
 
 extension NewsViewController : UITableViewDelegate, UITableViewDataSource{
     
@@ -39,6 +48,7 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        pushViewController(DetailsViewController.self)
     }
 }
 
