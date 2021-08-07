@@ -24,5 +24,10 @@ class NewsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func setCollectionViewCell(imageUrl : String ){
+        let imageURL = URL(string: imageUrl)
+        newImageView.kf.indicatorType = .activity
+        newImageView.kf.setImage(with: imageURL , placeholder: UIImage(named: "blurImage"))
+    }
 
 }

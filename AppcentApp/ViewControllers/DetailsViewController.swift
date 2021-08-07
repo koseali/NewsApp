@@ -22,7 +22,7 @@ class DetailsViewController: UIViewController {
 }
     
     func setupViews(){
-        newTitleLabel.text = "Tum Takimlar Kardes."
+        newTitleLabel.text = "Tum Takimlar Kardestir"
         authorButton.isUserInteractionEnabled = false
         authorButton.setTitle("Ali Kose", for: .normal)
         dateButton.isUserInteractionEnabled = false
