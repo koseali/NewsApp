@@ -49,7 +49,7 @@ class NewsViewController: UIViewController {
     }
 
     @IBAction func clearSearchButtonTapped(_ sender: Any) {
-        searchTextField.text = ""
+        searchTextField.text?.removeAll() 
     }
     @IBAction func searchButtonTapped(_ sender: Any) {
         print("Search Yapma fonksiyonu tableview reload at")
@@ -67,15 +67,18 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = newsTableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell") as! NewsTableViewCell
         let item = news[indexPath.row]
-        cell.titleLabel.text = item.title
-        cell.subtitleLabel.text = item.description
-        cell.setCollectionViewCell(imageUrl: item.urlToImage)
+     
+        cell.setNewTableViewCell(title: item.title, subtitle: item.description, imageUrl: item.urlToImage)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        pushViewController(DetailsViewController.self)
+        print("Detaya Gidilen Haber: ")
+        print(news[indexPath.row])
+        pushDetailsViewController(news, indexPath)
+        
+//        pushViewController(DetailsViewController.self)
     }
    
 }

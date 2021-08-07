@@ -11,7 +11,6 @@ struct News : Codable {
    let  articles : [Article]
     
 }
-
 struct Article : Codable {
     let source : Source
     

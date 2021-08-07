@@ -11,6 +11,7 @@ import WebKit
 class SourceViewController: UIViewController, WKNavigationDelegate {
 
     @IBOutlet weak var newWebView: WKWebView!
+    public var newURL : String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -19,8 +20,9 @@ class SourceViewController: UIViewController, WKNavigationDelegate {
     func setupViews(){
 //        TODO: Delegate kismini svprogresshud ile al yuklenirken bir sey gozuksun.
         newWebView.navigationDelegate = self
-        
-        let url = URL(string: "https://developer.apple.com")!
+//        let url = URL(string: "https://developer.apple.com")!
+
+       let url = URL(string: newURL)!
         newWebView.load(URLRequest(url: url))
     }
 

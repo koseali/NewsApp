@@ -24,6 +24,17 @@ extension UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
+    func pushDetailsViewController(_ news : [Article] , _ indexpath : IndexPath) {
+        
+        let DetailsViewController = storyboard?.instantiateViewController(
+            withIdentifier: "DetailsViewController"
+        ) as! DetailsViewController
+        
+        DetailsViewController.news = news
+        DetailsViewController.indexPath = indexpath
+        navigationController?.pushViewController(DetailsViewController, animated: true)
+    }
+    
     
     
 }
