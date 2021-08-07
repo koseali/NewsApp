@@ -117,12 +117,12 @@
 		81BE2C8A26BDE3730024D77C /* AppcentApp */ = {
 			isa = PBXGroup;
 			children = (
+				81BE2C8B26BDE3730024D77C /* AppDelegate.swift */,
+				81BE2C8D26BDE3730024D77C /* SceneDelegate.swift */,
 				81BE2CBB26BDE3CD0024D77C /* Storyboards */,
 				81BE2CBD26BDE3FF0024D77C /* ViewControllers */,
 				81BE2CBC26BDE3F40024D77C /* Models */,
 				81BE2CBE26BDE4260024D77C /* Extensions */,
-				81BE2C8B26BDE3730024D77C /* AppDelegate.swift */,
-				81BE2C8D26BDE3730024D77C /* SceneDelegate.swift */,
 				81BE2C9426BDE3740024D77C /* Assets.xcassets */,
 				81BE2C9926BDE3740024D77C /* Info.plist */,
 			);

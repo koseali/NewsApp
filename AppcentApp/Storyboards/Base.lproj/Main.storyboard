@@ -263,7 +263,6 @@
                                 <state key="normal" title="Author Name" image="newspaper" catalog="system">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <state key="disabled" title="asd"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jgw-uz-7aR"/>

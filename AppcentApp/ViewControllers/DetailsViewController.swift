@@ -19,15 +19,16 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-       
-        print("Details view e gecildi.")
-    }
+}
     
     func setupViews(){
+        newTitleLabel.text = "Tum Takimlar Kardes."
         authorButton.isUserInteractionEnabled = false
+        authorButton.setTitle("Ali Kose", for: .normal)
         dateButton.isUserInteractionEnabled = false
-        newDescriptionTextView.text = "Fenerbahçe futbol takımı, Fenerbahçe Spor Kulübü'nün Süper Lig'de mücadele eden profesyonel futbol takımıdır. Kulübün futbol dışında faaliyet gösterdiği diğer spor dalları basketbol, voleybol, atletizm, boks, kürek, yelken, yüzme, e-Spor ve masa tenisi'dir."
         
+        newDescriptionTextView.text = "Fenerbahçe futbol takımı, Fenerbahçe Spor Kulübü'nün Süper Lig'de mücadele eden profesyonel futbol takımıdır. Kulübün futbol dışında faaliyet gösterdiği diğer spor dalları basketbol, voleybol, atletizm, boks, kürek, yelken, yüzme, e-Spor ve masa tenisi'dir.Fenerbahçe futbol takımı, Fenerbahçe Spor Kulübü'nün Süper Lig'de mücadele eden profesyonel futbol takımıdır. Kulübün futbol dışında faaliyet gösterdiği diğer spor dalları basketbol, voleybol, atletizm, boks, kürek, yelken, yüzme, e-Spor ve masa tenisi'dir.Fenerbahçe futbol takımı, Fenerbahçe Spor Kulübü'nün Süper Lig'de mücadele eden profesyonel futbol takımıdır. Kulübün futbol dışında faaliyet gösterdiği diğer spor dalları basketbol, voleybol, atletizm, boks, kürek, yelken, yüzme, e-Spor ve masa tenisi'dir.Fenerbahçe futbol takımı, Fenerbahçe Spor Kulübü'nün Süper Lig'de mücadele eden profesyonel futbol takımıdır. Kulübün futbol dışında faaliyet gösterdiği diğer spor dalları basketbol, voleybol, atletizm, boks, kürek, yelken, yüzme, e-Spor ve masa tenisi'dir."
+        newImageView.image = UIImage(named: "besiktas")
     }
     
 // MARK: -IBActions
