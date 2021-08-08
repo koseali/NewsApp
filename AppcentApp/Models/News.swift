@@ -9,6 +9,7 @@ import Foundation
 
 struct News : Codable {
    let  articles : [Article]
+    let totalResults : Int
     
 }
 struct Article : Codable {

@@ -14,33 +14,35 @@ class NewsViewController: UIViewController {
     @IBOutlet weak var newsTableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     
+    // MARK: -Variables
+    
     var news = [Article]()
     var pageNumber = 1
-    var searchText = "google"
-    var searchh = ""
+    var searchText = "AliKo"
+    var totalResults = 0
+    
+    // MARK: -Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData(search : searchText ,pageNum: pageNumber)
         setupView()
-        searchText = searchh
+        loadData(pageNum: pageNumber)
     }
-    func loadData(search: String , pageNum : Int) {
-        APIManager.shared.getNews(search: search, page: pageNum) { [weak self] result in
+    
+    // MARK: -Functions
+
+    func loadData( pageNum : Int) {
+        APIManager.shared.getNews(page: pageNum) { [weak self] result in
             switch result {
-            case .success(let articles):
-                let data = articles.compactMap({
+            case .success(let news):
+                let data = news.articles.compactMap({
                     Article(source: $0.source, author: $0.author, publishedAt: $0.publishedAt, title: $0.title, description: $0.description, urlToImage: $0.urlToImage, url: $0.url)
+                    
                 })
-                
-                if self!.searchh == self!.searchText{
-                    self!.news.append(contentsOf: data)
-                }
-                else{
-                    self!.news.removeAll()
-                    self!.searchh = self!.searchText
-                    self!.news.append(contentsOf: data)
-                }
-                
+                self?.totalResults = news.totalResults
+                self!.news.append(contentsOf: data)
+                print("Toplam Eleman: \(self!.totalResults)")
+                print("Haber Sayisi: \(self!.news.count)")
                 DispatchQueue.main.async {
                     self?.newsTableView.reloadData()
                 }
@@ -48,9 +50,7 @@ class NewsViewController: UIViewController {
             case .failure(let error):
                 print("Api Error: \(error)")
             }
-            
         }
-        
     }
     
     func setupView(){
@@ -58,13 +58,14 @@ class NewsViewController: UIViewController {
         newsTableView.dataSource = self
     }
     
+//    MARK: -IBActions
+    
     @IBAction func clearSearchButtonTapped(_ sender: Any) {
         searchTextField.text?.removeAll() 
     }
     @IBAction func searchButtonTapped(_ sender: Any) {
         searchText = searchTextField.text ?? ""
-        loadData(search: searchText, pageNum: pageNumber)
-        print("Search Yapma fonksiyonu tableview reload at")
+        print("\(searchText)")        
     }
 }
 
@@ -92,17 +93,16 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        //        scrollView.contentSize.height veri akdar asagi inmesi
-        //        scrollView.frame.size.height bu da ekranin frame yuksekligi
-        //        birtane de oldugum konumu alinca scrollView.contentSize.height ve konum cikmasi scrollView.frame.size.height buyukse page arttir
-        //        scrollView.contentOffset.y
         print("Ekranin yuksekligi : \(scrollView.frame.size.height)")
         print("Verinin yuksekligi : \(scrollView.contentSize.height)")
         print("bulunan y konumu: \(scrollView.contentOffset.y)")
         
         print(scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height)
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height {
-            loadData(search: searchText, pageNum: pageNumber+1)
+            guard news.count < totalResults else {
+                return
+            }
+            loadData( pageNum: pageNumber+1)
         }
     }
 }
