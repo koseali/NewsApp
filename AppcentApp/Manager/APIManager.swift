@@ -14,8 +14,8 @@ final class APIManager {
      */
     private init(){}
     
-    public func getNews(page : Int, completion: @escaping (Result<News,Error >) -> Void ) {
-         let baseURL = URL(string:"https://newsapi.org/v2/everything?q=AliKo&amp&page=\(page)&amp&apiKey=978723300d8a461e91dd48272c2df980")
+    public func getNews(search: String, page : Int, completion: @escaping (Result<News,Error >) -> Void ) {
+         let baseURL = URL(string:"https://newsapi.org/v2/everything?q=\(search)&amp&page=\(page)&amp&apiKey=978723300d8a461e91dd48272c2df980")
         guard let url = baseURL else{
             return
         }

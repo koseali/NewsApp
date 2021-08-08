@@ -9,9 +9,11 @@ import Foundation
 /*
  
  Pagination Ekle +
+ sinirlandir +
+ PAgination optional veirelr var -
  not: Pagination yapilirken svProgresshUd ile yukleme goster
  
- Arama Yapma Ekle -
+ Arama Yapma Ekle +
  
  Defaults Podunu kur -
  

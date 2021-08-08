@@ -26,13 +26,18 @@ class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        loadData(pageNum: pageNumber)
+        loadData(search: searchText ,pageNum: pageNumber)
     }
     
     // MARK: -Functions
-
-    func loadData( pageNum : Int) {
-        APIManager.shared.getNews(page: pageNum) { [weak self] result in
+    
+    func setupView(){
+        newsTableView.delegate = self
+        newsTableView.dataSource = self
+    }
+    
+    func loadData( search : String, pageNum : Int) {
+        APIManager.shared.getNews(search:search, page: pageNum) { [weak self] result in
             switch result {
             case .success(let news):
                 let data = news.articles.compactMap({
@@ -53,11 +58,6 @@ class NewsViewController: UIViewController {
         }
     }
     
-    func setupView(){
-        newsTableView.delegate = self
-        newsTableView.dataSource = self
-    }
-    
 //    MARK: -IBActions
     
     @IBAction func clearSearchButtonTapped(_ sender: Any) {
@@ -65,11 +65,14 @@ class NewsViewController: UIViewController {
     }
     @IBAction func searchButtonTapped(_ sender: Any) {
         searchText = searchTextField.text ?? ""
-        print("\(searchText)")        
+        print("\(searchText)")
+        news.removeAll()
+        pageNumber = 1
+        loadData(search: searchText, pageNum: pageNumber)
     }
 }
 
-
+//    MARK: -Extension for TableView
 
 extension NewsViewController : UITableViewDelegate, UITableViewDataSource{
     
@@ -102,7 +105,7 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource{
             guard news.count < totalResults else {
                 return
             }
-            loadData( pageNum: pageNumber+1)
+            loadData( search: searchText, pageNum: pageNumber+1)
         }
     }
 }
