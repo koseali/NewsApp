@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Defaults
 import Kingfisher
 class DetailsViewController: UIViewController {
     
@@ -22,7 +23,8 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        //        print("Gelen index \(indexPath)")
+        print("KAydedilen Favori Haberler")
+                //        print("Gelen index \(indexPath)")
         //        print("Gelen haberler: \(news)")
     }
     //    MARK: -Functions
@@ -65,6 +67,7 @@ class DetailsViewController: UIViewController {
         print("Yeni Tarih: \(goodDate)")
         return goodDate
     }
+    
     // MARK: -IBActions
     @IBAction func backButtonTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -82,16 +85,31 @@ class DetailsViewController: UIViewController {
     
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        //        TODO: favorite duzenle burada goster.
         
-        //        var likedWallpapers = Defaults[.likedWallpapers]
-        //        if likedWallpapers.contains(self.wallpaper.thumbnailUrl){
-        //            likedWallpapers = likedWallpapers.filter(){ $0 != self.wallpaper.thumbnailUrl }
-        //        }
-        //        else {
-        //            likedWallpapers.append(self.wallpaper.thumbnailUrl)
-        //        }
-        //        Defaults[.likedWallpapers] = likedWallpapers
+        var favoriteNew = Defaults[.favoriteNew]
+        favoriteNew = news[indexPath.row]
+        
+        var favoriteNews = Defaults[.favoriteNews]
+        let size = favoriteNews.count
+        
+        guard !favoriteNews.isEmpty else {
+             favoriteNews.append(favoriteNew)
+            Defaults[.favoriteNews] = favoriteNews
+            return
+        }
+        var flag = true
+        for index in 0...size-1 {
+            if favoriteNews[index].url == favoriteNew.url {
+                favoriteNews.remove(at: index)
+                Defaults[.favoriteNews] = favoriteNews
+                flag = false
+                break
+            }
+        }
+        if flag == true {
+            favoriteNews.append(favoriteNew)
+            Defaults[.favoriteNews] = favoriteNews
+        }
     }
     
     @IBAction func shareButtonTapped(_ sender: UIButton) {

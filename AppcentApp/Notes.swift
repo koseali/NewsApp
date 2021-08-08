@@ -15,9 +15,10 @@ import Foundation
  
  Arama Yapma Ekle +
  
- Defaults Podunu kur -
+ Defaults Podunu kur +
  
- Favorilere Veri Gonderme
- Fav. veri getirme -
+ Favorilere Veri Gonderme +
+ Fav. veri getirme +
+ Favori iconunu kontrol etmek - varsa defaults ta iconu selected yap -
  
  */

@@ -6,15 +6,26 @@
 //
 
 import UIKit
+import Defaults
+import Kingfisher
 
 class FavoritesViewController: UIViewController {
+    
+    var favoriteNews = Defaults[.favoriteNews]
 
     @IBOutlet weak var favoritesTableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupView()
+        
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        favoriteNews = Defaults[.favoriteNews]
+        favoritesTableView.reloadData()
+    }
+ 
     func setupView(){
         favoritesTableView.dataSource = self
         favoritesTableView.delegate = self
@@ -23,20 +34,25 @@ class FavoritesViewController: UIViewController {
 
 extension FavoritesViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return favoriteNews.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = favoritesTableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell") as! FavoritesTableViewCell
-        cell.titleLabel.text = "News Title"
-        cell.subtitleLabel.text = "proje gec basladim. proje gec basladim proje gec basladim"
-        cell.newImageView.image = UIImage(named: "besiktas")
+        let item = favoriteNews[indexPath.row]
+        cell.titleLabel.text = item.title
+        cell.subtitleLabel.text = item.description
+        
+        let imageURL = URL(string: item.urlToImage)
+        cell.newImageView.kf.indicatorType = .activity
+        cell.newImageView.kf.setImage(with: imageURL , placeholder: UIImage(named: "blurImage"))
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        pushViewController(DetailsViewController.self)
+        pushDetailsViewController(favoriteNews, indexPath)
+
     }
     
     
