@@ -27,6 +27,7 @@
 		81BE2CD226BE0C200024D77C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BE2CD026BE0C0A0024D77C /* WebKit.framework */; };
 		81BE2CD426BED23D0024D77C /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE2CD326BED23D0024D77C /* News.swift */; };
 		81BE2CD626BED51B0024D77C /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE2CD526BED51B0024D77C /* APIManager.swift */; };
+		81BE2CD926BF51F20024D77C /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE2CD826BF51F20024D77C /* Notes.swift */; };
 		F9F5B7B1C038909218A9709C /* Pods_AppcentApp_AppcentAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D080913D1D2208C077FCC448 /* Pods_AppcentApp_AppcentAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		81BE2CD026BE0C0A0024D77C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		81BE2CD326BED23D0024D77C /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		81BE2CD526BED51B0024D77C /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		81BE2CD826BF51F20024D77C /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		88FB056444BC6BBDC5A66A7B /* Pods-AppcentApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppcentApp.debug.xcconfig"; path = "Target Support Files/Pods-AppcentApp/Pods-AppcentApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9D13E33FEC80A967C1338194 /* Pods_AppcentApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppcentApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0A0ECE3B9BE46D02FEC3EE2 /* Pods-AppcentApp-AppcentAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppcentApp-AppcentAppUITests.release.xcconfig"; path = "Target Support Files/Pods-AppcentApp-AppcentAppUITests/Pods-AppcentApp-AppcentAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				81BE2CBE26BDE4260024D77C /* Extensions */,
 				81BE2C9426BDE3740024D77C /* Assets.xcassets */,
 				81BE2C9926BDE3740024D77C /* Info.plist */,
+				81BE2CD826BF51F20024D77C /* Notes.swift */,
 			);
 			path = AppcentApp;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81BE2CD626BED51B0024D77C /* APIManager.swift in Sources */,
+				81BE2CD926BF51F20024D77C /* Notes.swift in Sources */,
 				81BE2C8C26BDE3730024D77C /* AppDelegate.swift in Sources */,
 				81BE2CCC26BDFFFA0024D77C /* FavoritesTableViewCell.swift in Sources */,
 				81BE2CC026BDE7930024D77C /* UIView+Extension.swift in Sources */,

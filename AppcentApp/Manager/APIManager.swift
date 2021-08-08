@@ -9,18 +9,15 @@ import Foundation
 
 final class APIManager {
     static let shared = APIManager()
-    let apiKey = ""
-    struct  Constants {
-        static let baseURL = URL(string: "https://newsapi.org/v2/everything?q=google&apiKey=1ef4d15934bf4adbbfed86496ca71979")
-    }
+
 /*
      https://newsapi.org/v2/everything?q=besiktas&amp&page=1&amp&apiKey=1ef4d15934bf4adbbfed86496ca71979
      */
     private init(){}
     
-    public func getNews(completion: @escaping (Result<[Article],Error >) -> Void ) {
-        
-        guard let url = Constants.baseURL else{
+    public func getNews( page : Int, completion: @escaping (Result<[Article],Error >) -> Void ) {
+         let baseURL = URL(string: "https://newsapi.org/v2/everything?q=google&page=\(page)&apiKey=1ef4d15934bf4adbbfed86496ca71979")
+        guard let url = baseURL else{
             return
         }
     
