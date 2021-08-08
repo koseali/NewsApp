@@ -11,6 +11,8 @@ import Foundation
  Pagination Ekle +
  not: Pagination yapilirken svProgresshUd ile yukleme goster
  
+ Arama Yapma Ekle -
+ 
  Defaults Podunu kur -
  
  Favorilere Veri Gonderme

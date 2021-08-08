@@ -16,26 +16,34 @@ class NewsViewController: UIViewController {
     
     var news = [Article]()
     var pageNumber = 1
+    var searchText = "google"
+    var searchh = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData(pageNum: pageNumber)
+        loadData(search : searchText ,pageNum: pageNumber)
         setupView()
-        
+        searchText = searchh
     }
-    func loadData(pageNum : Int) {
-        APIManager.shared.getNews(page: pageNum) { [weak self] result in
+    func loadData(search: String , pageNum : Int) {
+        APIManager.shared.getNews(search: search, page: pageNum) { [weak self] result in
             switch result {
             case .success(let articles):
                 let data = articles.compactMap({
                     Article(source: $0.source, author: $0.author, publishedAt: $0.publishedAt, title: $0.title, description: $0.description, urlToImage: $0.urlToImage, url: $0.url)
                 })
-                self!.news.append(contentsOf: data)
+                
+                if self!.searchh == self!.searchText{
+                    self!.news.append(contentsOf: data)
+                }
+                else{
+                    self!.news.removeAll()
+                    self!.searchh = self!.searchText
+                    self!.news.append(contentsOf: data)
+                }
+                
                 DispatchQueue.main.async {
                     self?.newsTableView.reloadData()
                 }
-                
-                //                print("Abi NEws burda")
-                //                print(self!.news)
                 break
             case .failure(let error):
                 print("Api Error: \(error)")
@@ -54,6 +62,8 @@ class NewsViewController: UIViewController {
         searchTextField.text?.removeAll() 
     }
     @IBAction func searchButtonTapped(_ sender: Any) {
+        searchText = searchTextField.text ?? ""
+        loadData(search: searchText, pageNum: pageNumber)
         print("Search Yapma fonksiyonu tableview reload at")
     }
 }
@@ -92,10 +102,8 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource{
         
         print(scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height)
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height {
-            loadData(pageNum: pageNumber+1)
+            loadData(search: searchText, pageNum: pageNumber+1)
         }
-        
     }
-    
 }
 
