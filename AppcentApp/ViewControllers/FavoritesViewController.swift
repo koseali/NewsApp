@@ -27,7 +27,7 @@ class FavoritesViewController: UIViewController {
         favoritesTableView.reloadData()
         if favoriteNews.isEmpty {
             SVProgressHUD.setDefaultMaskType(.none)
-            SVProgressHUD.showInfo(withStatus:"There is no favorite news. You can add it from the detail screen.")
+            SVProgressHUD.showInfo(withStatus:"There is no favorite news. You can add it from the new screen.")
         }
     }
  
