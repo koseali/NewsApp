@@ -27,6 +27,5 @@ struct Article : Codable {
 }
 
 struct Source : Codable {
-//    let id : Int null geliyor.
     let name : String
 }

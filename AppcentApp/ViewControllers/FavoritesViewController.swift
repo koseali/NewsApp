@@ -8,6 +8,7 @@
 import UIKit
 import Defaults
 import Kingfisher
+import SVProgressHUD
 
 class FavoritesViewController: UIViewController {
     
@@ -24,6 +25,10 @@ class FavoritesViewController: UIViewController {
         super.viewWillAppear(true)
         favoriteNews = Defaults[.favoriteNews]
         favoritesTableView.reloadData()
+        if favoriteNews.isEmpty {
+            SVProgressHUD.setDefaultMaskType(.none)
+            SVProgressHUD.showInfo(withStatus:"There is no favorite news. You can add it from the detail screen.")
+        }
     }
  
     func setupView(){
@@ -45,7 +50,7 @@ extension FavoritesViewController : UITableViewDelegate , UITableViewDataSource 
         
         let imageURL = URL(string: item.urlToImage)
         cell.newImageView.kf.indicatorType = .activity
-        cell.newImageView.kf.setImage(with: imageURL , placeholder: UIImage(named: "blurImage"))
+        cell.newImageView.kf.setImage(with: imageURL , placeholder: UIImage(named: "blankImage"))
         return cell
     }
     

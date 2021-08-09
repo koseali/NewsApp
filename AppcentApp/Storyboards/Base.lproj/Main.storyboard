@@ -299,6 +299,7 @@
                     <connections>
                         <outlet property="authorButton" destination="2XR-b9-cfC" id="Ilu-G8-oDn"/>
                         <outlet property="dateButton" destination="NdB-7G-4Nb" id="DdX-OQ-mdy"/>
+                        <outlet property="favoriteButton" destination="PjM-SE-IFs" id="kJc-uP-AzF"/>
                         <outlet property="newDescriptionTextView" destination="7LX-Cj-BpI" id="0HJ-Ig-Cay"/>
                         <outlet property="newImageView" destination="5nK-Ik-vur" id="6mZ-Fz-yKO"/>
                         <outlet property="newTitleLabel" destination="yqo-3v-FO5" id="gpF-ZK-q1X"/>

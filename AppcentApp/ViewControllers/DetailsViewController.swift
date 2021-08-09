@@ -15,31 +15,46 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var newTitleLabel: UILabel!
     @IBOutlet weak var authorButton: UIButton!
     @IBOutlet weak var dateButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var newDescriptionTextView: UITextView!
+    
     // MARK: -Variables
     public var news = [Article]()
     public var indexPath = IndexPath(row: 0, section: 0)
+    
     // MARK: -LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         print("KAydedilen Favori Haberler")
-                //        print("Gelen index \(indexPath)")
-        //        print("Gelen haberler: \(news)")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setFavoriteButton()
     }
     //    MARK: -Functions
+    
     func setupViews(){
         let item = news[indexPath.row]
-        newTitleLabel.text = item.title
-        authorButton.isUserInteractionEnabled = false
-        authorButton.setTitle(item.author, for: .normal)
-        dateButton.isUserInteractionEnabled = false
-        dateButton.setTitle(formatDate(date: item.publishedAt), for: .normal)
-        newDescriptionTextView.text = item.description
+
+        setDetailsViewData(title: item.title, description: item.description, author: item.author, publishedAt: item.publishedAt, imageURL: item.urlToImage)
+    }
+    
+    func setDetailsViewData(title : String , description : String , author : String, publishedAt : String , imageURL : String) {
+
+        newTitleLabel.text = title
         
-        let imageURL = URL(string: item.urlToImage)
+        authorButton.isUserInteractionEnabled = false
+        authorButton.setTitle(author, for: .normal)
+        
+        dateButton.isUserInteractionEnabled = false
+        dateButton.setTitle(formatDate(date: publishedAt), for: .normal)
+        
+        newDescriptionTextView.text = description
+
+        let imageURL = URL(string: imageURL)
         newImageView.kf.indicatorType = .activity
-        newImageView.kf.setImage(with: imageURL , placeholder: UIImage(named: "blurImage"))
+        newImageView.kf.setImage(with: imageURL , placeholder: UIImage(named: "blankImage"))
     }
     
     func formatDate(date : String)-> String{
@@ -68,6 +83,28 @@ class DetailsViewController: UIViewController {
         return goodDate
     }
     
+    func setFavoriteButton(){
+        
+        var favoriteNew = Defaults[.favoriteNew]
+        favoriteNew = news[indexPath.row]
+        
+        let favoriteNews = Defaults[.favoriteNews]
+        
+        let size =  favoriteNews.count
+        var flag = true
+//        ALERT : TODO : Favorite Listesi 0 sa durumu
+        if size != 0 {
+            for index in 0...size-1 {
+                if favoriteNews[index].url == favoriteNew.url {
+                    favoriteButton.isSelected = true
+                    flag = false
+                }
+            }
+        }
+        if flag == true {
+            favoriteButton.isSelected = false
+        }
+    }
     // MARK: -IBActions
     @IBAction func backButtonTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

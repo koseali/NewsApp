@@ -30,7 +30,7 @@ class FavoritesTableViewCell: UITableViewCell {
         
         let imageURL = URL(string: imageUrl)
         newImageView.kf.indicatorType = .activity
-        newImageView.kf.setImage(with: imageURL , placeholder: UIImage(named: "blurImage"))
+        newImageView.kf.setImage(with: imageURL , placeholder: UIImage(named: "blankImage"))
     }
 
 

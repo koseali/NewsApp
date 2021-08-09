@@ -4,6 +4,7 @@
 target 'AppcentApp' do
   pod 'Defaults'
   pod 'Kingfisher', '~> 6.0'
+  pod 'SVProgressHUD'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 

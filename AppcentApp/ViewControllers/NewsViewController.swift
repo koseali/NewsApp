@@ -7,7 +7,7 @@
 
 import UIKit
 import Kingfisher
-
+import SVProgressHUD
 class NewsViewController: UIViewController {
     
     // MARK: -IBOUTLETS
@@ -18,7 +18,7 @@ class NewsViewController: UIViewController {
     
     var news = [Article]()
     var pageNumber = 1
-    var searchText = "AliKo"
+    var searchText = "new"
     var totalResults = 0
     
     // MARK: -Lifecycle
@@ -48,6 +48,10 @@ class NewsViewController: UIViewController {
                 self!.news.append(contentsOf: data)
                 print("Toplam Eleman: \(self!.totalResults)")
                 print("Haber Sayisi: \(self!.news.count)")
+                if self!.news.isEmpty {
+                    SVProgressHUD.setDefaultMaskType(.none)
+                    SVProgressHUD.showInfo(withStatus:"Couldn't Find Any Result Please Search Again.")
+                }
                 DispatchQueue.main.async {
                     self?.newsTableView.reloadData()
                 }
@@ -69,6 +73,9 @@ class NewsViewController: UIViewController {
         news.removeAll()
         pageNumber = 1
         loadData(search: searchText, pageNum: pageNumber)
+       
+        newsTableView.reloadData()
+      
     }
 }
 
@@ -83,6 +90,8 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = newsTableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell") as! NewsTableViewCell
         let item = news[indexPath.row]
+//      ALERT TODO  burada bir cokuyor ama neden abi
+//         hata aranan bir sey yoksa  orn swift yazip arayinca ve google seyine tiklayinca cokuyor Cozum : arama yapip sonuc gelmeyince sayfayi reload etmedigim icin
         
         cell.setNewTableViewCell(title: item.title, subtitle: item.description, imageUrl: item.urlToImage)
         return cell
