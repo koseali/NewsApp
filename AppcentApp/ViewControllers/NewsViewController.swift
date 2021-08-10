@@ -12,7 +12,7 @@ class NewsViewController: UIViewController {
     
     // MARK: -IBOUTLETS
     @IBOutlet weak var newsTableView: UITableView!
-    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var newsSearchBar: UISearchBar!
     
     // MARK: -Variables
     
@@ -22,7 +22,7 @@ class NewsViewController: UIViewController {
     var totalResults = 0
     
     // MARK: -Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -34,6 +34,7 @@ class NewsViewController: UIViewController {
     func setupView(){
         newsTableView.delegate = self
         newsTableView.dataSource = self
+        newsSearchBar.delegate = self
     }
     
     func loadData( search : String, pageNum : Int) {
@@ -61,22 +62,6 @@ class NewsViewController: UIViewController {
             }
         }
     }
-    
-//    MARK: -IBActions
-    
-    @IBAction func clearSearchButtonTapped(_ sender: Any) {
-        searchTextField.text?.removeAll() 
-    }
-    @IBAction func searchButtonTapped(_ sender: Any) {
-        searchText = searchTextField.text ?? ""
-        print("\(searchText)")
-        news.removeAll()
-        pageNumber = 1
-        loadData(search: searchText, pageNum: pageNumber)
-       
-        newsTableView.reloadData()
-      
-    }
 }
 
 //    MARK: -Extension for TableView
@@ -90,10 +75,8 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = newsTableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell") as! NewsTableViewCell
         let item = news[indexPath.row]
-//      ALERT TODO  burada bir cokuyor ama neden abi
-//         hata aranan bir sey yoksa  orn swift yazip arayinca ve google seyine tiklayinca cokuyor Cozum : arama yapip sonuc gelmeyince sayfayi reload etmedigim icin
-        
         cell.setNewTableViewCell(title: item.title, subtitle: item.description, imageUrl: item.urlToImage)
+        
         return cell
     }
     
@@ -116,6 +99,22 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource{
             }
             loadData( search: searchText, pageNum: pageNumber+1)
         }
+    }
+}
+//    MARK: -Extension for Searchbar
+extension NewsViewController : UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text, !searchText.isEmpty else{
+            SVProgressHUD.setDefaultMaskType(.none)
+            SVProgressHUD.showInfo(withStatus:"Search key is empty. Please write search key.")
+            return}
+        print(searchText)
+        news.removeAll()
+        pageNumber = 1
+        loadData(search: searchText, pageNum: pageNumber)
+        
+        newsTableView.reloadData()
+        
     }
 }
 

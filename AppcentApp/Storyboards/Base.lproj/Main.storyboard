@@ -17,57 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" placeholder="Type a text" translatesAutoresizingMaskIntoConstraints="NO" id="juA-tX-9fn">
+                                <rect key="frame" x="5" y="56" width="365" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appcent News App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zft-dX-Ot7">
                                 <rect key="frame" x="93.5" y="15" width="188.5" height="25.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="N4p-fz-7MQ">
-                                <rect key="frame" x="30" y="56" width="315" height="24"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hc0-3G-eWU">
-                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="24" id="ZPQ-Uk-kdd"/>
-                                            <constraint firstAttribute="height" constant="24" id="lZi-fq-Naz"/>
-                                        </constraints>
-                                        <state key="normal" image="clear" catalog="system"/>
-                                        <connections>
-                                            <action selector="clearSearchButtonTapped:" destination="BTZ-FE-dFq" eventType="touchUpInside" id="73l-7d-s4y"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type a Text" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZRr-0j-jt6">
-                                        <rect key="frame" x="43" y="0.0" width="229" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8L-K2-Bfv">
-                                        <rect key="frame" x="291" y="0.0" width="24" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="24" id="Iqj-YE-ejW"/>
-                                            <constraint firstAttribute="height" constant="24" id="kge-A9-fuq"/>
-                                        </constraints>
-                                        <state key="normal" image="magnifyingglass" catalog="system"/>
-                                        <connections>
-                                            <action selector="searchButtonTapped:" destination="BTZ-FE-dFq" eventType="touchUpInside" id="2XU-vC-wQq"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i9N-fA-h1W">
-                                <rect key="frame" x="0.0" y="112" width="375" height="506"/>
+                                <rect key="frame" x="0.0" y="121.5" width="375" height="496.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -127,23 +88,23 @@
                         <viewLayoutGuide key="safeArea" id="NmE-Bs-mYK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="NmE-Bs-mYK" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="N4p-fz-7MQ" secondAttribute="trailing" constant="30" id="21l-iU-yVR"/>
                             <constraint firstItem="i9N-fA-h1W" firstAttribute="leading" secondItem="NmE-Bs-mYK" secondAttribute="leading" id="3AM-eO-jtg"/>
+                            <constraint firstItem="i9N-fA-h1W" firstAttribute="top" secondItem="juA-tX-9fn" secondAttribute="bottom" constant="14.5" id="5dV-gj-w4l"/>
                             <constraint firstItem="Zft-dX-Ot7" firstAttribute="centerX" secondItem="NmE-Bs-mYK" secondAttribute="centerX" id="5ln-6J-Z13"/>
                             <constraint firstItem="NmE-Bs-mYK" firstAttribute="bottom" secondItem="i9N-fA-h1W" secondAttribute="bottom" id="9c0-q8-QiX"/>
                             <constraint firstItem="i9N-fA-h1W" firstAttribute="centerX" secondItem="NmE-Bs-mYK" secondAttribute="centerX" id="Bfc-zj-UsQ"/>
-                            <constraint firstItem="N4p-fz-7MQ" firstAttribute="centerX" secondItem="Zft-dX-Ot7" secondAttribute="centerX" id="HuE-5e-5p1"/>
-                            <constraint firstItem="i9N-fA-h1W" firstAttribute="top" secondItem="N4p-fz-7MQ" secondAttribute="bottom" constant="32" id="Vjk-b8-jXv"/>
-                            <constraint firstItem="N4p-fz-7MQ" firstAttribute="top" secondItem="Zft-dX-Ot7" secondAttribute="bottom" constant="15.5" id="XNs-FC-YY3"/>
-                            <constraint firstItem="N4p-fz-7MQ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="NmE-Bs-mYK" secondAttribute="leading" constant="30" id="YVB-sG-LRP"/>
+                            <constraint firstItem="juA-tX-9fn" firstAttribute="top" secondItem="Zft-dX-Ot7" secondAttribute="bottom" constant="15.5" id="Ktl-UT-k1O"/>
+                            <constraint firstItem="NmE-Bs-mYK" firstAttribute="trailing" secondItem="juA-tX-9fn" secondAttribute="trailing" constant="5" id="dOG-bU-jlm"/>
+                            <constraint firstItem="juA-tX-9fn" firstAttribute="centerX" secondItem="NmE-Bs-mYK" secondAttribute="centerX" id="kSQ-RE-RMQ"/>
+                            <constraint firstItem="juA-tX-9fn" firstAttribute="leading" secondItem="NmE-Bs-mYK" secondAttribute="leading" constant="5" id="oVx-js-VnF"/>
                             <constraint firstItem="NmE-Bs-mYK" firstAttribute="trailing" secondItem="i9N-fA-h1W" secondAttribute="trailing" id="zYR-yj-oop"/>
                             <constraint firstItem="Zft-dX-Ot7" firstAttribute="top" secondItem="NmE-Bs-mYK" secondAttribute="top" constant="15" id="zYs-xm-SoX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Asq-hD-HdI"/>
                     <connections>
+                        <outlet property="newsSearchBar" destination="juA-tX-9fn" id="Ahe-Ph-j62"/>
                         <outlet property="newsTableView" destination="i9N-fA-h1W" id="eEf-b3-hp3"/>
-                        <outlet property="searchTextField" destination="ZRr-0j-jt6" id="XPL-Vt-9MG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4EE-da-bSK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -531,11 +492,9 @@
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
-        <image name="clear" catalog="system" width="128" height="114"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="house" catalog="system" width="128" height="106"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="newspaper" catalog="system" width="128" height="108"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="labelColor">
