@@ -18,9 +18,7 @@ class SourceViewController: UIViewController, WKNavigationDelegate {
     }
     
     func setupViews(){
-//        TODO: Delegate kismini svprogresshud ile al yuklenirken bir sey gozuksun.
         newWebView.navigationDelegate = self
-//        let url = URL(string: "https://developer.apple.com")!
 
        let url = URL(string: newURL)!
         newWebView.load(URLRequest(url: url))

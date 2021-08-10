@@ -92,7 +92,6 @@ class DetailsViewController: UIViewController {
         
         let size =  favoriteNews.count
         var flag = true
-//        ALERT : TODO : Favorite Listesi 0 sa durumu
         if size != 0 {
             for index in 0...size-1 {
                 if favoriteNews[index].url == favoriteNew.url {
@@ -106,10 +105,11 @@ class DetailsViewController: UIViewController {
         }
     }
     // MARK: -IBActions
+    
     @IBAction func backButtonTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    // self.navigationController?.popViewController(animated: true)
+    
     @IBAction func newSourceButtonTapped(_ sender: Any) {
         let SourceViewController = storyboard?.instantiateViewController(
             withIdentifier: "SourceViewController"

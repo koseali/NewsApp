@@ -15,11 +15,12 @@ class FavoritesViewController: UIViewController {
     var favoriteNews = Defaults[.favoriteNews]
 
     @IBOutlet weak var favoritesTableView: UITableView!
+
+    // MARK: -Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupView()
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -30,12 +31,16 @@ class FavoritesViewController: UIViewController {
             SVProgressHUD.showInfo(withStatus:"There is no favorite news. You can add it from the new screen.")
         }
     }
- 
+    
+    // MARK: -Function
+
     func setupView(){
         favoritesTableView.dataSource = self
         favoritesTableView.delegate = self
     }
 }
+
+//    MARK: -Extension for TableView
 
 extension FavoritesViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
