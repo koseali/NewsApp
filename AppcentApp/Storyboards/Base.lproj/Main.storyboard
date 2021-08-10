@@ -120,12 +120,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Po9-ww-wJQ">
-                                <rect key="frame" x="15" y="0.0" width="48" height="48"/>
+                                <rect key="frame" x="0.0" y="0.0" width="58" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="721-GF-8HI"/>
+                                    <constraint firstAttribute="width" constant="58" id="721-GF-8HI"/>
                                     <constraint firstAttribute="height" constant="48" id="Wvp-xA-taT"/>
                                 </constraints>
-                                <state key="normal" image="chevron.backward" catalog="system"/>
+                                <state key="normal" image="backIcon"/>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="Cbw-xG-Omr" eventType="touchUpInside" id="HXH-wa-e4y"/>
                                 </connections>
@@ -136,7 +136,7 @@
                                     <constraint firstAttribute="width" constant="48" id="WwL-Fr-xOF"/>
                                     <constraint firstAttribute="height" constant="48" id="pgw-kS-Bgy"/>
                                 </constraints>
-                                <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                                <state key="normal" image="shareIcon"/>
                                 <connections>
                                     <action selector="shareButtonTapped:" destination="Cbw-xG-Omr" eventType="touchUpInside" id="hM3-ZS-fh0"/>
                                 </connections>
@@ -147,8 +147,8 @@
                                     <constraint firstAttribute="width" constant="48" id="7U9-vT-UYl"/>
                                     <constraint firstAttribute="height" constant="48" id="rf9-0p-Oeq"/>
                                 </constraints>
-                                <state key="normal" image="heart" catalog="system"/>
-                                <state key="selected" image="heart.fill" catalog="system"/>
+                                <state key="normal" image="favmenuIcon"/>
+                                <state key="selected" image="favfillIcon"/>
                                 <connections>
                                     <action selector="favoriteButtonTapped:" destination="Cbw-xG-Omr" eventType="touchUpInside" id="IIn-qr-hvn"/>
                                 </connections>
@@ -201,30 +201,30 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ugK-d2-Ky9">
-                                <rect key="frame" x="-20" y="315" width="415" height="20"/>
+                                <rect key="frame" x="30" y="315" width="315" height="20"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XR-b9-cfC">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="H6b-Rk-D7Y"/>
+                                            <constraint firstAttribute="width" constant="150" id="H6b-Rk-D7Y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
                                         <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                        <state key="normal" title="Author Name" image="newspaper" catalog="system">
+                                        <state key="normal" title="Author Name" image="authorIcon">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdB-7G-4Nb">
-                                        <rect key="frame" x="215" y="0.0" width="200" height="20"/>
+                                        <rect key="frame" x="165" y="0.0" width="150" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="9u8-bx-Af8"/>
+                                            <constraint firstAttribute="width" constant="150" id="9u8-bx-Af8"/>
                                             <constraint firstAttribute="height" constant="20" id="mpt-3r-Hoq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
                                         <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                        <state key="normal" title="03.08.2020" image="calendar" catalog="system">
+                                        <state key="normal" title="03.08.2020" image="calendarIcon">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="disabled" title="asd"/>
@@ -239,7 +239,7 @@
                             <constraint firstItem="jgw-uz-7aR" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="5nK-Ik-vur" secondAttribute="trailing" constant="12" id="29X-oP-a46"/>
                             <constraint firstItem="jgw-uz-7aR" firstAttribute="bottom" secondItem="nxU-la-eNW" secondAttribute="bottom" constant="10" id="5qh-4N-e5F"/>
                             <constraint firstItem="PjM-SE-IFs" firstAttribute="centerY" secondItem="MhN-c7-vKq" secondAttribute="centerY" id="7Bu-z1-hWO"/>
-                            <constraint firstItem="Po9-ww-wJQ" firstAttribute="leading" secondItem="jgw-uz-7aR" secondAttribute="leading" constant="15" id="8eg-lI-Nti"/>
+                            <constraint firstItem="Po9-ww-wJQ" firstAttribute="leading" secondItem="jgw-uz-7aR" secondAttribute="leading" id="8eg-lI-Nti"/>
                             <constraint firstItem="PjM-SE-IFs" firstAttribute="leading" secondItem="MhN-c7-vKq" secondAttribute="trailing" constant="5" id="AZG-0Y-nra"/>
                             <constraint firstItem="jgw-uz-7aR" firstAttribute="bottom" secondItem="7LX-Cj-BpI" secondAttribute="bottom" constant="48" id="DCB-3F-gUF"/>
                             <constraint firstItem="7LX-Cj-BpI" firstAttribute="leading" secondItem="5nK-Ik-vur" secondAttribute="leading" id="JEL-jB-FoI"/>
@@ -280,6 +280,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="C70-EE-ECy" kind="relationship" relationship="viewControllers" id="dps-UH-Igc"/>
@@ -400,12 +402,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9D-cB-8FA">
-                                <rect key="frame" x="16" y="0.0" width="48" height="48"/>
+                                <rect key="frame" x="0.0" y="0.0" width="58" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="XKo-Aq-zMk"/>
+                                    <constraint firstAttribute="width" constant="58" id="XKo-Aq-zMk"/>
                                     <constraint firstAttribute="height" constant="48" id="YPG-n0-u9p"/>
                                 </constraints>
-                                <state key="normal" image="chevron.backward" catalog="system"/>
+                                <state key="normal" image="backIcon"/>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="rJ8-Bb-gkM" eventType="touchUpInside" id="cYn-3C-a5L"/>
                                 </connections>
@@ -433,7 +435,7 @@
                         <constraints>
                             <constraint firstItem="0BT-wY-M4X" firstAttribute="centerY" secondItem="I9D-cB-8FA" secondAttribute="centerY" id="1w2-51-LTu"/>
                             <constraint firstItem="0BT-wY-M4X" firstAttribute="centerX" secondItem="sG8-u0-itc" secondAttribute="centerX" id="5M3-Ru-dOg"/>
-                            <constraint firstItem="I9D-cB-8FA" firstAttribute="leading" secondItem="sG8-u0-itc" secondAttribute="leading" constant="16" id="8ZH-bS-MZz"/>
+                            <constraint firstItem="I9D-cB-8FA" firstAttribute="leading" secondItem="sG8-u0-itc" secondAttribute="leading" id="8ZH-bS-MZz"/>
                             <constraint firstItem="I9D-cB-8FA" firstAttribute="top" secondItem="sG8-u0-itc" secondAttribute="top" id="CwB-MZ-7GI"/>
                             <constraint firstItem="Lv9-AY-ahI" firstAttribute="top" secondItem="0BT-wY-M4X" secondAttribute="bottom" constant="10" id="JMJ-Ht-3iV"/>
                             <constraint firstItem="sG8-u0-itc" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Lv9-AY-ahI" secondAttribute="trailing" constant="15" id="SiH-DF-qhP"/>
@@ -454,7 +456,7 @@
         <scene sceneID="MLH-8C-Pdi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="C70-EE-ECy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="News" image="house" catalog="system" id="QUc-RV-pEM"/>
+                    <tabBarItem key="tabBarItem" title="News" image="homeIcon" id="QUc-RV-pEM"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jUo-CH-29B">
@@ -473,7 +475,7 @@
         <scene sceneID="nhU-p5-1jW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="nzY-UB-rTV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" id="nbM-og-tAr"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="favmenuIcon" id="nbM-og-tAr"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v6I-HF-MPX">
@@ -490,13 +492,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar" catalog="system" width="128" height="106"/>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <image name="house" catalog="system" width="128" height="106"/>
-        <image name="newspaper" catalog="system" width="128" height="108"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="authorIcon" width="25" height="25"/>
+        <image name="backIcon" width="25" height="25"/>
+        <image name="calendarIcon" width="25" height="25"/>
+        <image name="favfillIcon" width="25" height="25"/>
+        <image name="favmenuIcon" width="25" height="25"/>
+        <image name="homeIcon" width="25" height="25"/>
+        <image name="shareIcon" width="25" height="25"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
