@@ -9,13 +9,12 @@ import Foundation
 
 final class APIManager {
     static let shared = APIManager()
-/*
-     https://newsapi.org/v2/everything?q=besiktas&amp&page=1&amp&apiKey=1ef4d15934bf4adbbfed86496ca71979
-     */
+
     private init(){}
     
     public func getNews(search: String, page : Int, completion: @escaping (Result<News,Error >) -> Void ) {
-         let baseURL = URL(string:"https://newsapi.org/v2/everything?q=\(search)&amp&page=\(page)&amp&apiKey=bb813359c7d54c6ea93446e23ec5c283")
+        let apiKey = "bb813359c7d54c6ea93446e23ec5c283"
+         let baseURL = URL(string:"https://newsapi.org/v2/everything?q=\(search)&amp&page=\(page)&amp&apiKey=\(apiKey)")
         guard let url = baseURL else{
             return
         }
