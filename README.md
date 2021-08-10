@@ -1,9 +1,13 @@
 # Appcent News App
+![Screens](https://github.com/koseali/NewsApp/blob/main/promotionFile/promotion.png)
+
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
 I developed this project for the Appcent interview.
+* [You can reach promotion video](https://github.com/koseali/NewsApp/blob/main/promotionFile/PromotionVideo.mp4)
+
 
 ## Requirements
 * [Xcode](https://developer.apple.com/xcode/)
